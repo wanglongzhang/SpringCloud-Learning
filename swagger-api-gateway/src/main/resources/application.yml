@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: swagger-api-gateway
+
+server:
+  port: 21111
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-peer1:10001/eureka/

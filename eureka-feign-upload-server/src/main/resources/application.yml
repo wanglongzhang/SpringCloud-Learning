@@ -1,0 +1,10 @@
+spring:
+    application:
+        name: eureka-feign-upload-server
+server:
+    port: 20011
+
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://eureka-peer1:10001/eureka/

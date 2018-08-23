@@ -1,0 +1,35 @@
+spring:
+    cloud:
+        stream:
+            bindings:
+                input:
+                    destination: license # 指定对应的主题名
+                    group: consumerGroup #消费组,确保处于该消费组的多个实例，只有1个会消费某1条消息。 默认情况下，Spring Cloud Stream会为每个app分配一个独立的匿名消费组。当有消息被发布之后，所有的应用都会对其进行消费，因为它们各自都属于一个独立的组中。
+                    consumer:
+                        partitioned: true # 消息分区为了题：当消息队列将消息数据发送给多个消费者实例时，保证拥有共同特征的消息数据始终由同一个消费者实例接收和处理。
+                output:
+                    destination: license
+                    contentType: text/plain
+                    producer:
+                        partitionKeyExpression: payload #指定分区键的表达式规则，根据实际的输出消息规则来配置SpEL来生成合适的分区键
+                        partitionCount: 2 # 指定消息分区的数量
+            instanceCount: 2 # 指定当前总的消费者实例数量
+            instanceIndex: 0 # 当前实例的索引号, [0, ${spring.cloud.stream.instanceCount}-1]
+
+    application:
+        name: stream-hello
+    rabbitmq:
+        host: 10.150.157.96
+        port: 5672
+        username: admin
+        password: admin
+
+server:
+    port: 22222
+
+logging:
+    level:
+        root: INFO
+
+
+

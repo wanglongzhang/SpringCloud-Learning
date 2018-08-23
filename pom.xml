@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.didispace</groupId>
+    <artifactId>spring-cloud-edgware</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0</version>
+
+    <modules>
+
+
+        <module>tutorial-parent</module>
+        <module>eureka-server</module>
+
+        <module>eureka-service-provider</module>
+        <module>eureka-consumer</module>
+        <module>eureka-consumer-ribbon</module>
+        <module>eureka-consumer-feign</module>
+
+        <!-- db存储配置的中心与客户端 -->
+        <module>config-server-db</module>
+        <module>config-client</module>
+
+        <!-- 服务降级, 依赖隔离, Hystrix断路器 -->
+        <module>eureka-consumer-ribbon-hystrix</module>
+
+        <module>hystrix-dashboard</module>
+        <!-- Hystrix监控数据聚合 -->
+        <module>turbine</module>
+        <module>turbine-amqp</module>
+
+        <module>api-gateway</module>
+
+        <module>swagger-api-gateway</module>
+        <module>swagger-service-demo</module>
+
+        <module>stream-hello</module>
+
+        <module>trace-1</module>
+        <module>trace-2</module>
+        <module>trace-3</module>
+
+        <module>zipkin-server</module>
+        <module>zipkin-server-stream</module>
+
+
+
+    </modules>
+
+</project>

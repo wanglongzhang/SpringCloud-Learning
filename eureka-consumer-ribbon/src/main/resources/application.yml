@@ -1,0 +1,12 @@
+spring:
+    application.name: eureka-consumer-ribbon
+server:
+    port: 20102
+
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://eureka-peer1:10001/eureka/
+
+logging:
+    file: ${spring.application.name}.log

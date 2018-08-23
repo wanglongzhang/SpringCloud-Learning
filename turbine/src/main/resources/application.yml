@@ -1,0 +1,18 @@
+spring:
+    application:
+        name: turbine
+
+server:
+    port: 28989
+management:
+    port: 28990
+
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://eureka-peer1:10001//eureka/
+
+turbine:
+    app-config: eureka-consumer-ribbon-hystrix
+    cluster-name-expression: "default"
+    combine-host-port: true

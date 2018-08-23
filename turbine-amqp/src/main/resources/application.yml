@@ -1,0 +1,18 @@
+spring:
+    application:
+        name: turbine-amqp
+    rabbitmq:
+        host: 10.150.157.96
+        port: 5672
+        username: admin
+        password: admin
+
+server:
+    port: 28992
+management:
+    port: 28993
+
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://eureka-peer1:10001//eureka/

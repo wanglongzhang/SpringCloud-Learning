@@ -1,0 +1,30 @@
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://eureka-peer1:10001/eureka/
+
+swagger:
+    base-package: com.didispace
+
+---
+spring:
+    application:
+        name: swagger-service-a
+    profiles: master # not standalone
+server:
+    port: 21121
+
+logging:
+    file: logs/${spring.application.name}-${spring.profiles}.log
+
+---
+spring:
+    application:
+        name: swagger-service-b
+    profiles: develop # not standalone
+server:
+    port: 21122
+
+logging:
+    file: logs/${spring.application.name}-${spring.profiles}.log
+

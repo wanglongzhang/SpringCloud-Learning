@@ -1,0 +1,25 @@
+spring:
+    application:
+        name: config-server-db
+    profiles:
+        active: jdbc
+    datasource:
+        url: jdbc:mysql://localhost:3306/spring-cloud-config-db?characterEncoding=utf8&useUnicode=true&verifyServerCertificate=false&useSSL=false&requireSSL=false
+        username: root
+        password: '111111'
+        driver-class-name: com.mysql.jdbc.Driver
+    cloud:
+        config:
+            server:
+                jdbc:
+                    sql: SELECT `key`, `value` FROM properties WHERE `application` = ? AND `profile` = ? AND `label` = ?
+management:
+    security:
+        enabled: false
+
+server:
+    port: 10020
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://eureka-peer1:10001/eureka/

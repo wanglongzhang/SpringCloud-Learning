@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: api-gateway
+
+server:
+  port: 21101
+
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://eureka-peer1:10001/eureka/
+
+zuul:
+  routes:
+#  single-instance
+    api-a:
+      path: /api-a/**
+      url: http://hadoopserver2:20001/
+#  multi-instance
+    api-b:
+      path: /api-b/**
+      serviceId: api-b
+
+api-b:
+  ribbon:
+    listOfServers: http://hadoopserver2:20001/, http://hadoopserver2:20002/
